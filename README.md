@@ -1,4 +1,4 @@
-# Nova Chat - Multi-LLM Router Chatbot
+# nova Chat - Multi-LLM Router Chatbot
 
 A beautiful, minimalistic web-based chatbot that intelligently routes user prompts to different Groq models based on the type of question.
 
