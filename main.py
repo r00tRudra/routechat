@@ -36,9 +36,14 @@ if not os.getenv("GROQ_API_KEY"):
 app = Flask(__name__)
 
 # Configuration
+
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///nova.db"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'super-secret-key-change-me-please')
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')  # ← Neon/PostgreSQL connection string
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')  # ← Neon/PostgreSQL connection string
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
 app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
     "pool_size": 5,
     "max_overflow": 10,
